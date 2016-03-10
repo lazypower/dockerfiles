@@ -1,0 +1,29 @@
+vpndata:
+  image: busybox
+  volumes:
+    - /var/lib/pritunl
+server:
+  image: lazypower/pritunl
+  ports:
+    - 1194:1194/udp
+    - 1194:1194/tcp
+    - 9700:9700/tcp
+  environment:
+    - MONGODB_URI=mongodb://mongodb:27017/pritunl
+  privileged: true
+  volumes_from:
+    - vpndata
+  links:
+    - mongo:mongodb
+mongodata:
+  image: mongo
+  volumes:
+    - /data/db
+  command: --break-mongo
+mongo:
+  image: mongo
+  volumes_from:
+    - mongodata
+  ports:
+    - 27017:27017
+  command: --smallfiles --rest
