@@ -1,0 +1,10 @@
+znc:
+  image: jimeh/znc
+  volumes_from:
+    - znc_data
+  ports:
+    - 6667:6667
+znc_data:
+  image: busybox
+  volumes:
+    - /znc_data
