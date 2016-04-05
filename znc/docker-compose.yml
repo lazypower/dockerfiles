@@ -1,10 +1,12 @@
-znc:
-  image: jimeh/znc
-  volumes_from:
-    - znc_data
-  ports:
-    - 6667:6667
-znc_data:
-  image: busybox
-  volumes:
-    - /znc_data
+version: '2'
+services:
+  znc:
+    image: lazypower/znc
+    volumes:
+      - znc_data:/znc_data
+    ports:
+      - 6699:6667
+    restart: unless-stopped
+volumes:
+  znc_data:
+    driver: local
