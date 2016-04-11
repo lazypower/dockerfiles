@@ -2,6 +2,7 @@ version: '2'
 services:
   consul1:
     image: "progrium/consul:latest"
+    restart: always
     container_name: "consul1"
     hostname: "consul1"
     ports:
@@ -11,6 +12,7 @@ services:
     command: "-server -bootstrap-expect 3 -ui-dir /ui"
   consul2:
     image: "progrium/consul:latest"
+    restart: always
     container_name: "consul2"
     hostname: "consul2"
     expose:
@@ -22,6 +24,7 @@ services:
       - consul1
   consul3:
     image: "progrium/consul:latest"
+    restart: always
     container_name: "consul3"
     hostname: "consul3"
     expose:
