@@ -1,0 +1,20 @@
+version: '2'
+services:
+  plex:
+    build: . 
+    volumes:
+      - plex_data:/root/Library/:rw
+      - /mnt/movies:/mnt/movies:ro
+      - /mnt/movies2:/mnt/movies2:ro
+      - /mnt/movies3:/mnt/movies3:ro
+      - /mnt/tv:/mnt/tv:ro
+      - /mnt/tv2:/mnt/tv2:ro
+      - /mnt/tv3:/mnt/tv3:ro
+      - /mnt/musicvideos:/mnt/musicvideos:ro
+    ports:
+      - 32400:32400
+    network_mode: "host"
+volumes:
+  plex_data:
+    driver: local
+
