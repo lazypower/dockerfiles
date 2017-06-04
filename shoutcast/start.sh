@@ -6,7 +6,7 @@ mkdir -p /etc/shoutcast
 
 cat << EOF > /etc/shoutcast/shoutcast.conf
 adminpassword=$ADMINPASS
-password=$SOURCEPASS
+password=$STREAMPASS
 requirestreamconfigs=1
 EOF
 
