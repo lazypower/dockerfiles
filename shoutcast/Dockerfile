@@ -1,5 +1,5 @@
 FROM ubuntu:14.04
-MAINTAINER Charles Butler <chuck@dasroot.co>
+LABEL maintainer "Charles Butler <chuck@dasroot.co>"
 
 ENV ADMINPASS=admin
 ENV STREAMPASS=stream
