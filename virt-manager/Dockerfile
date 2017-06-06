@@ -7,7 +7,7 @@ FROM ubuntu:16.04
 LABEL maintainer "Charles Butler <chuck@dasroot.co>"
 
 RUN apt-get update && apt-get install -y --no-install-recommends \
-    virt-manager ssh-client ssh-askpass ssh-askpass-gnome
+    virt-manager ssh-client ssh-askpass ssh-askpass-gnome spice-client-gtk gir1.2-spice-client-gtk-3.0
 
 RUN adduser ubuntu
 USER ubuntu
