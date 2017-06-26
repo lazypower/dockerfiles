@@ -3,6 +3,7 @@ LABEL maintainer "Charles Butler <chuck@dasroot.co>"
 
 ENV ADMINPASS=admin
 ENV STREAMPASS=stream
+ENV PORTBASE=8000
 
 RUN mkdir /opt/shoutcast && \
     mkdir /var/log/shoutcast
@@ -18,7 +19,7 @@ RUN apt-get update && \
 
 ADD start.sh /start.sh
 
-EXPOSE 8000 8001 8002
+EXPOSE $PORTBASE
 
 ENTRYPOINT ["/start.sh"]
 
