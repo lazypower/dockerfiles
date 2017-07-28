@@ -29,7 +29,7 @@ RUN apt-get update && \
 ADD ./templates /templates
 ADD ./start.sh /start.sh
 
-RUN git clone https://github.com/Just-Some-Bots/MusicBot.git /MusicBot -b master
+RUN git clone https://github.com/chuckbutler/MusicBot.git /MusicBot -b master
 ADD https://github.com/fazy/env-template/releases/download/0.1/env-template-0.1-linux-x86_64 /usr/local/bin/env-template
 
 RUN chmod +x /usr/local/bin/env-template
