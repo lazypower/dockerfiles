@@ -1,0 +1,16 @@
+<ezstream>
+    <url>http://icecast:8000/stream</url>
+<sourcepassword>password</sourcepassword>
+<format>MP3</format>
+<filename>/music/playlists/default.m3u</filename>
+<stream_once>0</stream_once>
+<metadata_format>@s@</metadata_format>
+<svrinfoname>streamy streamy</svrinfoname>
+<svrinfourl>http://google.com/?q=stream</svrinfourl>
+<svrinfogenre>Various</svrinfogenre>
+<svrinfodescription>Whatever suits the flavor of the craver</svrinfodescription>
+<svrinfobitrate>128</svrinfobitrate>
+<svrinfochannels>2</svrinfochannels>
+<svrinfosamplerate>44100</svrinfosamplerate>
+<svrinfopublic>0</svrinfopublic>
+</ezstream>
