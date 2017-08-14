@@ -1,0 +1,979 @@
+/*! SHOUTcast & Icecast Radio Player  v1.1 (2/7/17) | (c) 2017, Danial Sabagh | http://danialsabagh.com | http://mersadesign.com */
+@import url('https://fonts.googleapis.com/css?family=Oswald|Questrial');
+
+div.shiPlayer {
+    top:-10px;
+    margin:50px auto;
+    width: 400px;
+    height: 400px;
+    border-radius:10px;
+    overflow: hidden;
+    position: relative;
+    background: #000;
+}
+div.shiPlayer > .blur {
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    filter: blur(7px);
+    -webkit-filter: blur(7px);
+    -moz-filter:blur(7px);
+    -ms-filter: blur(7px);
+    -o-filter: blur(7px);
+}
+div.mainSection, div.dashboard{
+    position: absolute;
+    left: 0px;
+}
+div.mainSection{
+    width:100%;
+    height:85%;
+    top:0;
+}
+div.dashboard{
+    width:100%;
+    height:15%;
+    bottom:0;
+    color: #fff;
+}
+div.mainSection > .panel1,
+div.mainSection > .panel2,
+div.mainSection > .panel3 {
+    width: 100%;
+    Height: 100%;
+    position: absolute;
+    left: 0px;
+    top: 0px;
+}
+div.mainSection > .panel2{
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+
+div.shiPlayer  div.panel1 > div.top,
+div.shiPlayer  div.panel1 > div.middle{
+    width: 100%;
+}
+div.shiPlayer div.panel1 > div.top{ height: 30%; }
+div.shiPlayer  div.panel1 > div.middle{ height: 70%; margin-top: -20px;}
+
+div.shiPlayer div.middle > div:not(.centered-vertically){
+    width: 64px;
+    height: 64px;
+    background-color: rgba(255,255,255,0.15);
+    border-radius: 50%;
+    transition: all 0.3s ease-in-out;
+    -webkit-transition: all 0.3s ease-in-out;
+    -moz-transition: all 0.3s ease-in-out;
+    -ms-transition: all 0.3s ease-in-out;
+    -o-transition: all 0.3s ease-in-out;
+}
+div.shiPlayer div.middle > div:hover{
+    background-color: rgba(255,255,255,0.3);
+}
+div.shiPlayer div.middle > div:not(.centered-vertically){margin: -10px 10px 10px 10px;}
+div.shiPlayer div.dashboard > div:not(.centered-vertically){margin:10px;}
+div.shiPlayer div.middle > div:not(.centered-vertically),
+div.shiPlayer div.dashboard > div:not(.centered-vertically) {
+    display: inline-block;
+    vertical-align: middle;
+}
+div.shiPlayer div.middle > .centered-vertically,
+div.shiPlayer div.dashboard > .centered-vertically {
+    display: inline-block;
+    vertical-align: middle;
+    height: 100%;
+}
+div.middle, div.dashboard {
+    text-align: center;
+}
+div.dashboard > div:not(.centered-vertically) {
+    width: 30px;
+    height: 30px;
+    display: inline-block;
+    vertical-align: middle;
+}
+/** Buttons **/
+
+div.middle > .play{
+    width:138px !important;
+    height:138px !important;
+    position: relative;
+}
+div.middle > .play > #slider{
+    float: left;
+}
+div.middle > .play > .playpausebtn{
+    float: left;
+    position: absolute;
+    z-index: 4;
+    top: 50%; left: 50%;
+    transform: translate(-50%,-50%);
+    font-size: 90px;
+    color:#fff;
+}
+div.middle > .play > .frontTiming{
+    width: 70px;
+    background-color: rgba(255,255,255,0.7);
+    position: absolute;
+    bottom: -40px; left: 50%;
+    transform: translate(-50%,-50%);
+    opacity: 0;
+    text-align: left;
+    padding-left: 10px;
+}
+div.middle > .play > .frontTiming:after{
+    content: '\221E';
+    font-size: 20px;
+    position: absolute;
+    margin: -2px 0 0 2px;
+}
+
+
+div.middle > .play{
+    background-position: center !important;
+    background-repeat: no-repeat !important;
+}
+
+.sound{
+    width: 32px;
+    height: 32px;
+    transition: all 0.3s linear;
+    -webkit-transition: all 0.3s linear;
+    -ms-transition: all 0.3s linear;
+    -moz-transition: all 0.3s linear;
+    -o-transition: all 0.3s linear;
+
+}
+.sound, .share-button{
+    font-size: 22px;
+}
+
+.sound {
+    animation: 0.5s both ease-in-out;
+    -webkit-animation: 0.5s both ease-in-out;
+    -ms-animation: 0.5s both ease-in-out;
+    -moz-animation: 0.5s both ease-in-out;
+    -o-animation: 0.5s both ease-in-out;
+}
+
+@-webkit-keyframes shake {
+    0%, 100% {-webkit-transform: translateX(0);}
+    10%, 30%, 50%, 70%, 90% {-webkit-transform: translateX(-1px);}
+    20%, 40%, 60%, 80% {-webkit-transform: translateX(1px);}
+}
+@-moz-keyframes shake {
+    0%, 100% {-webkit-transform: translateX(0);}
+    10%, 30%, 50%, 70%, 90% {-webkit-transform: translateX(-1px);}
+    20%, 40%, 60%, 80% {-webkit-transform: translateX(1px);}
+}
+@-o-keyframes shake {
+    0%, 100% {-webkit-transform: translateX(0);}
+    10%, 30%, 50%, 70%, 90% {-webkit-transform: translateX(-1px);}
+    20%, 40%, 60%, 80% {-webkit-transform: translateX(1px);}
+}
+@-ms-keyframes shake {
+    0%, 100% {-webkit-transform: translateX(0);}
+    10%, 30%, 50%, 70%, 90% {-webkit-transform: translateX(-1px);}
+    20%, 40%, 60%, 80% {-webkit-transform: translateX(1px);}
+}
+@keyframes shake {
+    0%, 100% {transform: translateX(0);}
+    10%, 30%, 50%, 70%, 90% {transform: translateX(-1px);}
+    20%, 40%, 60%, 80% {transform: translateX(1px);}
+}
+.shake:hover {
+    -webkit-animation-name: shake;
+    -moz-animation-name: shake;
+    -ms-animation-name: shake;
+    -o-animation-name: shake;
+    animation-name: shake;
+}
+
+
+.dashboard > div.live {
+    width: 50px;
+    height: 32px;
+    position: relative;
+}
+
+.dashboard > div.live > div.bliking {
+    width: 7px;
+    height: 7px;
+    background: red;
+    border-radius: 50%;
+    position: absolute;
+    top: 14px;
+    left: 0;
+    animation: blinker 1.8s linear infinite;
+}
+
+.dashboard > div.live > div.icon {
+    width: 100%;
+    height: 100%;
+}
+.dashboard > div.live > div.icon:before{
+    content: 'Live';
+    font-size: 19px;
+    color: #fff;
+    margin-left: 10px;
+    line-height: 35px;
+    font-family: 'Questrial', sans-serif;
+    letter-spacing: 1px;
+}
+
+@keyframes blinker {
+    from { opacity: 0;  }
+    20% { opacity: 1;  }
+    80% { opacity: 1;  }
+    to { opacity: 0;  }
+}
+
+@-webkit-keyframes blinker {
+    from { opacity: 0;  }
+    20% { opacity: 1;  }
+    80% { opacity: 1;  }
+    to { opacity: 0;  }
+}
+
+@-moz-keyframes blinker {
+    from { opacity: 0;  }
+    20% { opacity: 1;  }
+    80% { opacity: 1;  }
+    to { opacity: 0;  }
+}
+
+@-ms-keyframes blinker {
+    from { opacity: 0; }
+    20% { opacity: 1; }
+    80% { opacity: 1; }
+    to { opacity: 0; }
+}
+
+/** menu Button **/
+.grid-button {
+    background: none;
+    border: none;
+    padding: 0;
+    width: 100%;
+}
+
+.grid {
+    display: inline-block;
+    height: 4px;
+    position: relative;
+    width: 32px;
+    transition: all 0.3s ease-in-out;
+    margin-top: 15px;
+}
+.grid:after, .grid:before {
+    content: '';
+    position: absolute;
+    background-color: #FFF;
+    display: inline-block;
+    height: 4px;
+    left: 0;
+    width: 32px;
+    transition: all 0.3s ease-in-out;
+}
+
+.grid.open {
+    background-color: #FFF;
+}
+.grid.open:after {
+    top: 10px;
+}
+.grid.open:before {
+    top: -10px;
+}
+
+.grid.close {
+    background-color: transparent;
+    transform: scale(0.9);
+}
+.grid.close:after, .grid.close:before {
+    top: 0;
+    transform-origin: 50% 50%;
+}
+.grid.close:before {
+    transform: rotate(135deg);
+}
+.grid.close:after {
+    transform: rotate(45deg);
+}
+
+
+/** Top section **/
+.trackTitle, .trackSinger{
+    text-align: center;
+    color:#FFF;
+    white-space: nowrap;
+}
+.trackTitle{
+    font-size:30px;
+    margin-top:20px;
+    font-family: 'Oswald', sans-serif;
+}
+.trackSinger{
+    margin-top: 10px;
+    font-size:16px;
+    font-family: 'Questrial', sans-serif;
+}
+
+
+
+
+/** Panel 2 setting **/
+div.panel2> ul{
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+div.panel2 > ul > li{
+    width:100%;
+    height:80px;
+    border-bottom:solid 1px rgba(255,255,255,0.5);
+    background:rgba(255,255,255,0.5);
+}
+div.panel2 > ul > li#row0{
+    background:rgba(255,255,255,0.8);
+}
+div.panel2 > ul > li > div.leftBox, div.panel2 > ul > li > div.rightBox{
+    height:100%;
+}
+div.panel2 > ul > li > div.leftBox{float:left; width:80%;}
+div.panel2 > ul > li > div.rightBox{float:right; width:20%;}
+div.panel2 > ul > li > div.leftBox > .listNum{
+    width:20%;
+    height:100%;
+    background:rgba(255,0,0,0.0);
+    font-size:58px;
+    font-family: 'Oswald', sans-serif;
+    float:left;
+    color:rgba(0,0,0,0.2);
+    margin-top: -8px;
+}
+div.panel2 > ul > li > div.leftBox > .nxttrack,
+div.panel2 > ul > li#row0 > div.leftBox > .listNum{
+    transform: rotate(-90deg);
+    -webkit-transform: rotate(-90deg);
+    -ms-transform: rotate(-90deg);
+    -moz-transform: rotate(-90deg);
+    -o-transform: rotate(-90deg);
+
+    font-size: 35px;
+}
+div.panel2 > ul > li > div.leftBox > .nxttrack > span,
+div.panel2 > ul > li#row0 > div.leftBox > .listNum > span{
+    margin-left: -10px;
+    margin-top: 10px;
+}
+div.listNum > span{
+    display: inline-block;
+    width: 100%;
+    text-align: center;
+}
+div.leftBox > p{
+    line-height:10px;
+    white-space: nowrap;
+}
+div.leftBox > p.title{
+    font-size:20px;
+    font-family: 'Oswald', sans-serif;
+    color: #454545;
+}
+div.leftBox > p.singer{
+    font-size:14px;
+    font-family: 'Questrial', sans-serif;
+    font-weight: 300;
+
+}
+div.leftBox > p.singer:before{
+    content: 'By ';
+}
+div.leftBox .playedAT{
+    font-family: 'Questrial', sans-serif;
+    font-size:12px;
+
+}
+div.leftBox .playedAT:before{
+    content: '@ ';
+}
+
+/** Right side ***/
+div.rightBox > .artwork{
+    width:60px;
+    height:60px;
+    border-radius:50%;
+    background-image: none;
+    background-position: center !important;
+    background-size:cover !important;
+    float:right;
+    margin:10px 5px 10px 0;
+}
+
+/** animations **/
+div.panel2 > ul > li{
+    transition: all 0.3s ease-in-out;
+    -webkit-transition: all 0.3s ease-in-out;
+    -moz-transition: all 0.3s ease-in-out;
+    -ms-transition: all 0.3s ease-in-out;
+    -o-transition: all 0.3s ease-in-out;
+}
+
+
+
+/** HOVER **/
+.play:hover  .rs-border{
+    border: 2px solid rgba(255, 255, 255, 0.3);
+}
+.play:hover  .rs-handle{
+    background-color: rgba(255,255,255,0.95);
+}
+.play:hover > .frontTiming{
+    opacity: 1 !important;
+}
+div.rs-container.full{
+    text-align: left;
+}
+.rs-seperator{
+    border: 1px solid rgba(255,255,255,0.4);
+}
+
+
+/*********** Panel 3 ******************/
+div.mainSection > .panel3{
+    font-family: 'Questrial', sans-serif;
+    color:#fff;
+}
+div.mainSection > .panel3 > .rLogo{
+    float: right;
+    margin:25px 10px 0 0;
+    width: 100px;
+    height: 100px;
+    background-size: 100px;
+    background-repeat: no-repeat;
+}
+div.mainSection > .panel3 > div{
+
+}
+div.mainSection > .panel3 > .rName{
+    font-size: 30px;
+    padding: 20px 0 30px 10px;
+
+}
+div.mainSection > .panel3 > .cListeners{
+
+}
+div.mainSection > .panel3 > .pListeners{
+
+}
+div.mainSection > .panel3 > .rTags{
+
+}
+div.mainSection > .panel3 > .rTags > .tg{
+    background: rgba(255,255,255,0.35);
+    margin: 5px;
+    border-radius: 10px;
+    display: inline-block;
+    line-height: 20px;
+    padding: 0 10px;
+}
+div.mainSection > .panel3 > .rTags > .tg:before{
+    content: '#';
+}
+div.mainSection > .panel3 > .rSite > a{
+    text-decoration: none;
+}
+div.mainSection > .panel3 > .rSite > a,
+div.mainSection > .panel3 > .rSite > a:visited,
+div.mainSection > .panel3 > .rSite > a:active{
+    color: inherit;
+}
+div.mainSection > .panel3 > .rSite > a:hover{
+    color: inherit;
+    text-decoration: underline;
+}
+div.mainSection > .panel3 > .cListeners,
+div.mainSection > .panel3 > .pListeners,
+div.mainSection > .panel3 > .rTags,
+div.mainSection > .panel3 > .rSite{
+    padding: 0 0 10px 16px;
+}
+
+
+/***********Social Button******************/
+.share-button {
+    width: 32px;
+    height: 32px;
+    line-height: 2em;
+    position: relative;
+}
+
+.social-toggle {
+    display: block;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+
+}
+.social-toggle{
+    /** transition: all 0.3s linear; **/
+    -webkit-animation: 0.5s both ease-in-out;
+    -moz-animation: 0.5s both ease-in-out;
+    -o-animation: 0.5s both ease-in-out;
+    -ms-animation: 0.5s both ease-in-out;
+    animation: 0.5s both ease-in-out;
+}
+.links-toggle:hover, .social-toggle:hover {
+    -webkit-animation-name: flash;
+    animation-name: flash;
+    -o-animation-name: flash;
+    -moz-animation-name: flash;
+    -ms-animation-name: flash;
+}
+@-webkit-keyframes flash {
+    0%, 50%, 100% {opacity: 1;}
+    25%, 75% {opacity: 0;}
+}
+@-ms-keyframes flash {
+    0%, 50%, 100% {opacity: 1;}
+    25%, 75% {opacity: 0;}
+}
+@-o-keyframes flash {
+    0%, 50%, 100% {opacity: 1;}
+    25%, 75% {opacity: 0;}
+}
+@-moz-keyframes flash {
+    0%, 50%, 100% {opacity: 1;}
+    25%, 75% {opacity: 0;}
+}
+@keyframes flash {
+    0%, 50%, 100% {opacity: 1;}
+    25%, 75% {opacity: 0;}
+}
+
+.social-networks {
+    -webkit-transform-origin: 50% 0;
+    -ms-transform-origin: 50% 0;
+    transform-origin: 50% 0;
+    -webkit-transform: scale(0) translateY(-190px);
+    transform: scale(0) translateY(-190px);
+    opacity: 0;
+    -webkit-transition: all .4s ease;
+    transition: all .4s ease;
+    margin-left: -45%;
+    /* stops flickering */
+    -webkit-backface-visibility: hidden;
+    -moz-backface-visibility: hidden;
+    -o-backface-visibility: hidden;
+    -ms-backface-visibility: hidden;
+}
+.social-facebook, .social-email, .social-gplus, .social-twitter{
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 16px 16px;
+}
+.social-facebook{
+
+}
+.social-facebook:hover{
+    background-color: rgba(59,89,152,.8);
+}
+.social-gplus{
+
+}
+.social-gplus:hover {
+    background-color: rgba(227,68,41,.8);
+}
+.social-twitter{
+
+}
+.social-twitter:hover {
+    background-color: rgba(108,223,234,.8);
+}
+.social-email{
+
+}
+.social-email:hover {
+    background-color: rgba(31, 128, 0,.8);
+}
+
+.social-networks.open-menu,
+.no-js .social-networks {
+    -webkit-transform: scale(1) translateY(-90px);
+    -ms-transform: scale(1) translateY(-90px);
+    -moz-transform: scale(1) translateY(-90px);
+    -o-transform: scale(1) translateY(-90px);
+    transform: scale(1) translateY(-90px);
+    opacity: 1;
+}
+
+.social-networks ul {
+    position: relative;
+    top: 50px;
+    right: 110px;
+    width: 160px;
+    height: 25px;
+    color: #fff;
+    background: rgba(255,255,255,.5);
+    margin: auto;
+    padding: 0;
+    list-style: none;
+}
+
+.social-networks ul:after {
+    content: '';
+    display: block;
+    width: 0;
+    height: 0;
+    position: absolute;
+    right: 10px;
+    border-left: 12px solid transparent;
+    border-right: 12px solid transparent;
+}
+
+.social-networks.open-menu ul:after,
+.no-js .social-networks ul:after {
+    margin: 25px 0;
+    border-top: 12px solid rgba(255,255,255,.5);
+}
+
+.social-networks li {
+    width: 40px;
+    margin: 0;
+    text-align: center;
+    float: left;
+    display: block;
+    height: 25px;
+    line-height: 40px;
+    position: relative;
+    z-index: 2;
+    -webkit-box-sizing: content-box;
+    -moz-box-sizing: content-box;
+    -ms-box-sizing: content-box;
+    -o-box-sizing: content-box;
+    box-sizing: content-box;
+    transition: background-color .3s ease;
+    font-size: 16px;
+}
+
+.share-button a {
+    text-decoration: none;
+}
+
+.social-networks a {
+    width:100%;
+    height: 100%;
+    display: block;
+    color: white;
+    position: absolute;
+    top: 0px;
+}
+
+.social-networks a:hover {  }
+/** ------- **/
+
+/** EQ PLAYER **/
+.eq{
+    float:left;
+    margin:-5px 5px 0 0;
+    width:14px;
+    height:15px;
+    position:relative;
+}
+.bar1, .bar2, .bar3{
+    float:left;
+    width:4px;
+    height:100%;
+    background:black;
+    position:absolute;
+    bottom:0;
+}
+.bar1{
+    animation: bar1 4s ease-in-out infinite;
+    -webkit-animation: bar1 4s ease-in-out infinite;
+    -o-animation: bar1 4s ease-in-out infinite;
+    -moz-animation: bar1 4s ease-in-out infinite;
+    -ms-animation: bar1 4s ease-in-out infinite;
+
+}
+.bar2{
+    animation: bar2 4s ease-in-out infinite; left:5px;
+    -webkit-animation: bar2 4s ease-in-out infinite; left:5px;
+    -moz-animation: bar2 4s ease-in-out infinite; left:5px;
+    -ms-animation: bar2 4s ease-in-out infinite; left:5px;
+    -o-animation: bar2 4s ease-in-out infinite; left:5px;
+}
+.bar3{
+    animation: bar3 4s ease-in-out infinite; left:10px;
+    -webkit-animation: bar3 4s ease-in-out infinite; left:10px;
+    -moz-animation: bar3 4s ease-in-out infinite; left:10px;
+    -ms-animation: bar3 4s ease-in-out infinite; left:10px;
+    -o-animation: bar3 4s ease-in-out infinite; left:10px;
+}
+@keyframes bar1 {
+    0%   {height: 100%;} 10%  {height: 80%;} 20%  {height: 90%;} 30%  {height: 1%;}
+    40%  {height: 60%;} 50%  {height: 40%;} 60%  {height: 90%;} 70%  {height: 70%;}
+    80%  {height: 100%;} 90%  {height: 5%;} 100%  {height: 100%;}
+}
+@keyframes bar2 {
+    0%   {height: 10%;} 10%  {height: 60%;} 20%  {height: 20%;} 30%  {height: 80%;}
+    40%  {height: 40%;} 50%  {height: 90%;} 60%  {height: 30%;} 70%  {height: 100%;}
+    80%  {height: 5%;} 90%  {height: 50%;} 100%  {height: 10%;}
+}
+@keyframes bar3 {
+    0%   {height: 50%;} 10%  {height: 20%;} 20%  {height: 70%;} 30%  {height: 50%;}
+    40%  {height: 1%;} 50%  {height: 80%;} 60%  {height: 50%;} 70%  {height: 90%;}
+    80%  {height: 30%;} 90%  {height: 1%;} 100%  {height: 10%;}
+}
+
+
+/** RESPONSIVE **/
+@media only screen and (max-device-width : 768px) {
+    div.sound{ /** DISABLE THE BUTTON **/
+        opacity: .5;
+        pointer-events: none;
+    }
+}
+@media only screen and (max-device-width : 400px) {
+    div.shiPlayer{
+        width:100%;
+    }
+    div.mainSection > .panel3 > .rLogo{
+        height: 50px;
+        width: 50px;
+    }
+}
+.shiPlayer {
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -o-user-select: none;
+    user-select: none;
+    cursor: default;
+}
+
+/** scroll **/
+.shiPlayer ::-webkit-scrollbar {
+    width:11px;
+}
+
+.shiPlayer ::-webkit-scrollbar-track {
+    -webkit-border-radius:5px;
+    border-radius:5px;
+    background:rgba(0,0,0,0.1);
+}
+
+.shiPlayer ::-webkit-scrollbar-thumb {
+    -webkit-border-radius:5px;
+    border-radius:5px;
+    background: rgba(255, 255, 255, 0.65);
+}
+
+.shiPlayer ::-webkit-scrollbar-thumb:hover {
+    background:rgba(255, 255, 255, 0.75);
+}
+
+.shiPlayer ::-webkit-scrollbar-thumb:window-inactive {
+    background:rgba(0,0,0,0.05);
+}
+
+/** ----------------------------------
+--------------- ICONS ----------------
+---------------------------------- **/
+@font-face {
+    font-family: 'ds';
+    src:  url('../fonts/ds.eot?e8bwoo');
+    src:  url('../fonts/ds.eot?e8bwoo#iefix') format('embedded-opentype'),
+    url('../fonts/ds.ttf?e8bwoo') format('truetype'),
+    url('../fonts/ds.woff?e8bwoo') format('woff'),
+    url('../fonts/ds.svg?e8bwoo#ds') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+[class^="icon-"], [class*=" icon-"] {
+    /* use !important to prevent issues with browser extensions that change fonts */
+    font-family: 'ds' !important;
+    speak: none;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+
+    /* Better Font Rendering =========== */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+
+}
+.shiPlayer .icon-play-r:before {
+    content: "\e902";
+    margin-left: 12px;
+}
+.shiPlayer .icon-stop-r:before {
+    content: "\e903";
+}
+.shiPlayer .icon-email:before {
+    content: "\e945";
+}
+.shiPlayer .icon-history2:before {
+    content: "\e94d";
+    position: absolute;
+    margin-top: 3px;
+    margin-left: -15px;
+    font-size: 25px;
+}
+.shiPlayer .icon-user:before {
+    content: "\e971";
+    margin-top:5px;
+    margin-left: -11px;
+}
+.shiPlayer .icon-history1:before {
+    content: "\e979";
+    margin-top: 5px;
+    margin-left: -10px;
+    font-size: 19px;
+}
+.shiPlayer .icon-history3:before {
+    content: "\ea0d";
+    margin-left: -13px;
+}
+.shiPlayer .icon-play:before {
+    content: "\ea1c";
+    padding-left: 10px;
+}
+.shiPlayer .icon-stop:before {
+    content: "\ea1e";
+    margin: -40px 0 0 -40px;
+    font-size: 80px;
+}
+.shiPlayer .icon-volume-high:before {
+    content: "\ea26";
+    margin-top:5px;
+    margin-left: -12px;
+}
+.shiPlayer .icon-volume-mute:before {
+    content: "\ea29";
+}
+.shiPlayer .icon-volume-increase:before {
+    content: "\ea2b";
+}
+.shiPlayer .icon-volume-decrease:before {
+    content: "\ea2c";
+}
+.shiPlayer .icon-infinite:before {
+    content: "\ea2f";
+}
+.shiPlayer .icon-share:before {
+    content: "\ea82";
+    margin-top:5px;
+    margin-left: -12px;
+}
+.shiPlayer .icon-google-plus:before {
+    content: "\ea8b";
+    font-size: 20px;
+}
+.shiPlayer .icon-facebook:before {
+    content: "\ea90";
+}
+.shiPlayer .icon-twitter:before {
+    content: "\ea96";
+}
+.shiPlayer .icon-radio-tower:before {
+    content: "\e900";
+}
+.shiPlayer .icon-Info:before {
+    content: "\e901";
+    font-size: 25px;
+    margin-left: -13px;
+    margin-top: 4px;
+}
+.shiPlayer .icon-info2:before {
+    content: "\ea0c";
+    font-size: 26px;
+    margin-left: -13px;
+    margin-top: 3px;
+}
+.shiPlayer .icon-radio1:before {
+    content: "\e91c";
+}
+.shiPlayer .icon-radio2:before {
+    content: "\e91d";
+}
+.shiPlayer .icon-tag:before {
+    content: "\e935";
+}
+.shiPlayer .icon-power:before {
+    content: "\e9b5";
+}
+.shiPlayer .icon-link:before {
+    content: "\e9cb";
+}
+.shiPlayer .icon-volume-mute2:before {
+    content: "\ea2a";
+}
+.shiPlayer .icon-mic:before {
+    content: "\e91e";
+}
+.shiPlayer .icon-headphones:before {
+    content: "\e910";
+}
+.shiPlayer .icon-music:before {
+    content: "\e911";
+}
+
+.shiPlayer .icon-twitter:before,
+.shiPlayer .icon-google-plus:before,
+.shiPlayer .icon-email:before,
+.shiPlayer .icon-facebook:before,
+.shiPlayer .icon-share:before,
+.shiPlayer .icon-volume-high:before,
+.shiPlayer .icon-user:before,
+.shiPlayer .icon-history1:before,
+.shiPlayer .icon-history2:before,
+.shiPlayer .icon-history3:before,
+.shiPlayer .icon-Info:before,
+.shiPlayer .icon-info2:before,
+.shiPlayer .icon-stop:before{
+    position: absolute;
+    color:#fff;
+}
+.shiPlayer .icon-twitter:before,
+.shiPlayer .icon-google-plus:before,
+.shiPlayer .icon-email:before,
+.shiPlayer .icon-facebook:before{
+    margin: -8px 0 0 -8px;
+    color:#fff;
+}
+.shiPlayer .icon-link,
+.shiPlayer .icon-tag,
+.shiPlayer .icon-radio-tower,
+.shiPlayer .icon-headphones,
+.shiPlayer .icon-power{
+    margin-right:10px;
+    color:#fff;
+}
+
+
+.shiPlayer .icon-history2,
+.shiPlayer .icon-Info{
+    transition: all 0.3s ease-in-out;
+    -webkit-transition: all 0.3s ease-in-out;
+    margin-top: 15px !important;
+}
+.shiPlayer .icon-history2:hover,
+.shiPlayer .icon-Info:hover{
+    background: rgba(255,255,255,0.4);
+    border-radius:50%;
+}
+.shiPlayer .icon-history2.pressed,
+.shiPlayer .icon-Info.pressed{
+    margin-top: 12px;
+    background: rgba(255,255,255,0.4);
+    border-radius:50%;
+}
+

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>DS Audio Player</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- required links -->
+    <script src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
+    <link href="css/shiPlayer.css" rel="stylesheet"/>
+
+
+</head>
+<body>
+
+<div class="shiPlayer" id="radio2" data-tag=""></div>
+
+
+<script src="js/shiPlayer.js"></script>
+<script>
+    $("#radio2").shiPlayer({
+        type: "icecast",
+        URL: "http://stream.dasapp.co:8000",
+        mount_point: "secondlife",
+        cors_proxy: "https://cors-anywhere.herokuapp.com/"
+    });
+
+</script>
+</body>
+</html>
