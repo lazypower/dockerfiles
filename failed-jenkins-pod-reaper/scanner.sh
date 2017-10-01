@@ -7,7 +7,7 @@ NAMESPACE="${NAMESPACE:-default}"
 
 scan() {
     # Read the kube token from the system
-    KUBE_TOKEN=$(</var/run/secrets/kubernetes.io/serviceaccount/token)
+    KUBE_TOKEN=$(cat /var/run/secrets/kubernetes.io/serviceaccount/token)
 
     if [ -z "${KUBE_TOKEN}" ]; then
         echo "Missing Kube Token. Run this pod in a namespace with service accounts enabled."
@@ -22,7 +22,9 @@ scan() {
 
     # Timestamp when something happened for auditing purposes...
     date
-    echo $located_pods | xargs kubectl delete po
+    if [ ! -z "${located_pods}" ]; then
+        echo $located_pods | xargs kubectl delete po
+    fi
 }
 
 # Main run loop
