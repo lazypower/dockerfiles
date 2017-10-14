@@ -1,0 +1,14 @@
+node {
+    checkout scm
+ 
+    docker.withRegistry('https://us.gcr.io', 'gcr:personal-1332') {
+
+        stage('Create Docker Image') {
+            dir('rainbowstream') {
+                def Img = docker.build("personal-1332/rainbowstream:${env.BUILD_NUMBER}")
+                Img.push()
+                Img.push("latest")
+            }
+        }
+    }
+}
