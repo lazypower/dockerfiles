@@ -1,0 +1,22 @@
+node {
+    def app
+
+    stages {
+        stage('Clone repository') {
+            /* Let's make sure we have the repository cloned to our workspace */
+            checkout scm
+        }
+        stage('Build image') {
+            /* this builds the image; synonymous to docker build on the cli */
+            app = docker.build("personal-1332/youtube-dl")
+        }
+        stage('Push') {
+             /* Finally push the image wiht two tags. First the build ID from jenkins
+                secondly the l atest tag */
+            docker.withRegistry('https://us.gcr.io', 'gcr:personal-1332') {
+                app.push("${env.BUILD_NUMBER}")
+                app.push("latest")
+            }
+        }
+    }
+}
