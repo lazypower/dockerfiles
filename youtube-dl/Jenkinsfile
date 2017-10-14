@@ -1,10 +1,14 @@
-node {
+pipeline {
+    agent any
+
     def app
 
     stages {
         stage('Clone repository') {
             /* Let's make sure we have the repository cloned to our workspace */
-            checkout scm
+            steps {
+                checkout scm
+            }
         }
         stage('Build image') {
             /* this builds the image; synonymous to docker build on the cli */
