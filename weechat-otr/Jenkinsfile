@@ -4,7 +4,7 @@ node {
     docker.withRegistry('https://us.gcr.io', 'gcr:personal-1332') {
 
         stage('Create Docker Image') {
-            dir('weechat') {
+            dir('weechat-otr') {
                 def Img = docker.build("personal-1332/weechat:${env.BUILD_NUMBER}")
                 Img.push()
                 Img.push("latest")
