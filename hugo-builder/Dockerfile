@@ -1,5 +1,5 @@
 FROM alpine:latest
-LABEL maintainer "Charles Butler <chuck@dasroot.co>"
+LABEL maintainer "Charles Butler <chuck@linuxlab.sh>"
 
 ENV REPOSITORY https://github.com/chuckbutler/dasroot-blog.git
 ENV GOPATH /go

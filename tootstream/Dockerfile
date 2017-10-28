@@ -1,6 +1,6 @@
 # docker run -ti -v $HOME/.config/tootstream:/home/tootstream/.config/tootstream tootstream
 FROM alpine:3.6
-LABEL maintainer "Charles Butler <chuck@dasroot.co>"
+LABEL maintainer "Charles Butler <chuck@linuxlab.sh>"
 
 RUN apk add --no-cache python3 \
     && pip3 install tootstream \

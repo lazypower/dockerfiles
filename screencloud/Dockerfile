@@ -9,7 +9,7 @@
 
 FROM ubuntu:16.04
 
-LABEL maintainer "Charles Butler <chuck@dasroot.co>"
+LABEL maintainer "Charles Butler <chuck@linuxlab.sh>"
 
 ADD http://de.archive.ubuntu.com/ubuntu/pool/universe/q/qtmobility/libqtmultimediakit1_1.2.0-1ubuntu2_amd64.deb /tmp/libqtmultimediakit1_1.2.0-1ubuntu2_amd64.deb
 ADD http://download.opensuse.org/repositories/home:olav-st/xUbuntu_16.04/Release.key /root/Release.key

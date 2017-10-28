@@ -1,5 +1,5 @@
 FROM ubuntu:16.04
-LABEL maintainer "Charles Butler <chuck@dasroot.co>"
+LABEL maintainer "Charles Butler <chuck@linuxlab.sh>"
 
 RUN apt-get update 
 # Add locale and tzdata back, fix https://github.com/docker-library/official-images/issues/2863

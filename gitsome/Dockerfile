@@ -1,6 +1,6 @@
 # Credit: https://github.com/jessfraz/dockerfiles/blob/master/gitsome/Dockerfile
 FROM python:3.5-alpine
-LABEL maintainer "Charles Butler <chuck@dasroot.co>"
+LABEL maintainer "Charles Butler <chuck@linuxlab.sh>"
 
 RUN apk add --no-cache \
     bash

@@ -4,7 +4,7 @@
 # -v $HOME/.Xauthority:/root/.Xauthority
 # --net=host lazypower/virt-manager
 FROM ubuntu:16.04
-LABEL maintainer "Charles Butler <chuck@dasroot.co>"
+LABEL maintainer "Charles Butler <chuck@linuxlab.sh>"
 
 RUN apt-get update && apt-get install -y --no-install-recommends \
     virt-manager ssh-client ssh-askpass ssh-askpass-gnome spice-client-gtk gir1.2-spice-client-gtk-3.0

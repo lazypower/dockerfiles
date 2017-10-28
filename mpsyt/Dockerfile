@@ -1,5 +1,5 @@
 FROM ubuntu:zesty
-LABEL MAINTAINER "Charles Butler <chuck@dasroot.co>"
+LABEL MAINTAINER "Charles Butler <chuck@linuxlab.sh>"
 
 # This Dockerfile is a derivitative of Andrey Arapov's work
 # https://raw.githubusercontent.com/arno01/mps-youtube/master/Dockerfile

@@ -1,5 +1,5 @@
 FROM jenkinsci/jnlp-slave
-LABEL maintainer "Charles Butler <chuck@dasroot.co>"
+LABEL maintainer "Charles Butler <chuck@linuxlab.sh>"
 
 ENV DOCKER_VERSION=1.12.0 KUBECTL_VERSION=v1.6.2
 

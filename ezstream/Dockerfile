@@ -1,5 +1,5 @@
 FROM alpine:3.3
-LABEL maintainer "Charles Butler <chuck@dasroot.co>"
+LABEL maintainer "Charles Butler <chuck@linuxlab.sh>"
 
 
 RUN apk -q update \

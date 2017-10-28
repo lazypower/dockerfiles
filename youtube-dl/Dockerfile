@@ -1,5 +1,5 @@
 FROM alpine:3.6
-LABEL maintainer "Charles Butler <chuck@dasroot.co>"
+LABEL maintainer "Charles Butler <chuck@linuxlab.sh>"
 
 RUN apk add --no-cache ca-certificates curl ffmpeg python \
     && curl -Lo /usr/local/bin/youtube-dl https://yt-dl.org/downloads/latest/youtube-dl \

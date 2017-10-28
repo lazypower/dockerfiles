@@ -1,6 +1,6 @@
 # credit: https://github.com/jessfraz/dockerfiles/blob/master/cloudapp/Dockerfile
 FROM	ruby:alpine
-LABEL maintainer "Charles Butler <chuck@dasroot.co>"
+LABEL maintainer "Charles Butler <chuck@linuxlab.sh>"
 
 RUN	apk add --no-cache \
 	libcurl

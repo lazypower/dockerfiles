@@ -7,7 +7,7 @@
 #	lazypower/rainbowstream
 #
 FROM python:2-alpine
-LABEL maintainer "Charles Butler <chuck@dasroot.co>"
+LABEL maintainer "Charles Butler <chuck@linuxlab.sh>"
 
 RUN apk --no-cache add \
 	build-base \
