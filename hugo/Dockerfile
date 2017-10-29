@@ -9,4 +9,4 @@ EXPOSE 1313
 USER hugo
 WORKDIR /site
 
-ENTRYPOINT ["hugo", "serve", "--bind", "0.0.0.0"]
+ENTRYPOINT ["hugo"]
