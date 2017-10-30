@@ -1,0 +1,5 @@
+{
+    "github-oauth": {
+        "github.com": "Copy to auth.json, go to https://github.com/settings/tokens/new?scopes=public_repo&description=Composer and insert token here"
+    }
+}

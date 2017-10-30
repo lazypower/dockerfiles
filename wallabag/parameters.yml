@@ -1,0 +1,15 @@
+parameters:
+    database_driver: pdo_pgsql
+    database_host: %WALLABAG_DB_HOST%
+    database_port: 5432
+    database_name: %WALLABAG_DB_NAME%
+    database_user: %WALLABAG_DB_USER%
+    database_password: %WALLABAG_DB_PASSWORD%
+    database_path: %WALLABAG_DB_NAME%
+    mailer_transport: smtp
+    mailer_host: %WALLABAG_SMTP_HOST%
+    secret: %WALLABAG_SECRET%
+    twofactor_sender: wallabag@mais-h.eu
+    warning_message:
+    wallabag_url: https://save.mais-h.eu
+    from_email: wallabag@mais-h.eu
