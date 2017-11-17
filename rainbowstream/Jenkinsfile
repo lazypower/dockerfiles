@@ -1,11 +1,11 @@
 node {
     checkout scm
  
-    docker.withRegistry('https://us.gcr.io', 'gcr:personal-1332') {
+    docker.withRegistry('https://registry.linuxlab.sh', 'jenkins-linuxlab') {
 
         stage('Create Docker Image') {
             dir('rainbowstream') {
-                def Img = docker.build("personal-1332/rainbowstream:${env.BUILD_NUMBER}")
+                def Img = docker.build("rainbowstream:${env.BUILD_NUMBER}")
                 Img.push()
                 Img.push("latest")
             }

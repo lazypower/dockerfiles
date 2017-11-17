@@ -1,11 +1,11 @@
 node {
     checkout scm
  
-    docker.withRegistry('https://us.gcr.io', 'gcr:personal-1332') {
+    docker.withRegistry('https://registry.linuxlab.sh', 'jenkins-linuxlab') {
 
         stage('Create Docker Image') {
             dir('weechat-otr') {
-                def Img = docker.build("personal-1332/weechat:${env.BUILD_NUMBER}")
+                def Img = docker.build("weechat:${env.BUILD_NUMBER}")
                 Img.push()
                 Img.push("latest")
             }
