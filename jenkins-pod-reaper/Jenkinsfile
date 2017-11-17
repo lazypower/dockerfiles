@@ -1,11 +1,11 @@
 node {
     checkout scm
  
-    docker.withRegistry('https://us.gcr.io', 'gcr:personal-1332') {
+    docker.withRegistry('https://registry.linuxlab.sh', 'jenkins-linuxlab') {
 
         stage('Create Docker Image') {
             dir('jenkins-pod-reaper') {
-                def Img = docker.build("personal-1332/jenkins-pod-reaper:${env.BUILD_NUMBER}")
+                def Img = docker.build("jenkins-pod-reaper:${env.BUILD_NUMBER}")
                 Img.push()
                 Img.push("latest")
             }
