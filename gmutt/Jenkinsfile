@@ -4,8 +4,8 @@ node {
     docker.withRegistry('https://registry.linuxlab.sh', 'jenkins-linuxlab') {
 
         stage('Create Docker Image') {
-            dir('mutt') {
-                def Img = docker.build("mutt:${env.BUILD_NUMBER}")
+            dir('gmutt') {
+                def Img = docker.build("gmutt:${env.BUILD_NUMBER}")
                 Img.push()
                 Img.push("latest")
             }
