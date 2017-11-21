@@ -1,0 +1,16 @@
+node {
+    checkout scm
+ 
+    docker.withRegistry('https://registry.linuxlab.sh', 'jenkins-linuxlab') {
+
+        stage('Create Docker Image') {
+            sh "git clone https://github.com/42wim/matterbridge"
+            
+            dir('matterbridge') {
+                def Img = docker.build("matterbridge:${env.BUILD_NUMBER}")
+                Img.push()
+                Img.push("latest")
+            }
+        }
+    }
+}
