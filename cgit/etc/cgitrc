@@ -1,0 +1,12 @@
+#
+# cgit config 
+#
+
+css=/cgit.css
+logo=/cgit.png
+
+robots=noindex, nofollow
+virtual-root=/
+
+snapshots=tar.gz tar.bz2 zip
+scan-path=/var/lib/git
