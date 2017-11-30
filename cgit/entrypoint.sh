@@ -23,9 +23,9 @@ main() {
 }
 
 initialize_services() {
-    # This was destructive, leave the chmod and roll the dice.
+    # This was destructive, I'll leave file perms up to the operator
 	#chown nginx  $GIT_PROJECT_ROOT
-	chmod -R 775 $GIT_PROJECT_ROOT
+	#chmod -R 775 $GIT_PROJECT_ROOT
 
 
     /usr/bin/spawn-fcgi \
