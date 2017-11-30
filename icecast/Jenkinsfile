@@ -1,0 +1,14 @@
+node {
+    checkout scm
+ 
+    docker.withRegistry('https://registry.linuxlab.sh', 'jenkins-linuxlab') {
+
+        stage('Create Docker Image') {
+            dir('icecast') {
+                def Img = docker.build("icecast:${env.BUILD_NUMBER}")
+                Img.push()
+                Img.push("latest")
+            }
+        }
+    }
+}
