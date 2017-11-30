@@ -28,10 +28,21 @@
     <listen-socket>
         <port>8000</port>
     </listen-socket>
+   <!-- Global header settings
+         Headers defined here will be returned for every HTTP request to Icecast.
+ 
+         The ACAO header makes Icecast public content/API by default
+         This will make streams easier embeddable (some HTML5 functionality needs it).
+         Also it allows direct access to e.g. /status-json.xsl from other sites.
+         If you don't want this, comment out the following line or read up on CORS.
+    -->
+   <http-headers>
+       <header name="Access-Control-Allow-Origin" value="*" />
+   </http-headers>
     <!-- Only define a <mount> section if you want to use advanced options,
          like alternative usernames or passwords -->
     <mount>
-        <mount-name>/secondlife</mount-name>
+        <mount-name>/listen</mount-name>
         <username>source</username>
         <password>hackmemore</password>
         <max-listeners>20</max-listeners>
