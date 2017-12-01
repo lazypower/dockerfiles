@@ -9,6 +9,8 @@
     <script src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
     <link href="css/shiPlayer.css" rel="stylesheet"/>
 
+
+
 <!-- Piwik -->
 <script type="text/javascript">
   var _paq = _paq || [];
@@ -18,12 +20,14 @@
   (function() {
     var u="//analytics.linuxlab.sh/";
     _paq.push(['setTrackerUrl', u+'piwik.php']);
-    _paq.push(['setSiteId', '1']);
+    _paq.push(['setSiteId', '2']);
     var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
     g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'piwik.js'; s.parentNode.insertBefore(g,s);
   })();
 </script>
+<noscript><p><img src="//analytics.linuxlab.sh/piwik.php?idsite=2&rec=1" style="border:0;" alt="" /></p></noscript>
 <!-- End Piwik Code -->
+
 
 </head>
 <body>
@@ -35,7 +39,7 @@
 <script>
     $("#radio2").shiPlayer({
         type: "icecast",
-        URL: "http://138.197.44.240:8080",
+        URL: "http://icy.linuxlab.sh:8080",
         mount_point: "listen"
     });
 
