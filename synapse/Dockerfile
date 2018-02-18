@@ -27,8 +27,6 @@ RUN /synapse/bin/python -m synapse.app.homeserver \
 
 RUN apt-get remove --purge -y build-essential
 
-ADD start.sh /start.sh
-
 WORKDIR /synapse
 
 EXPOSE 8008
