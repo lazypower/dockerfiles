@@ -1,0 +1,14 @@
+node {
+    checkout scm
+ 
+    docker.withRegistry('https://registry.linuxlab.sh', 'jenkins-linuxlab') {
+
+        stage('Create Docker Image') {
+            dir('synapse') {
+                def Img = docker.build("synapse:${env.BUILD_NUMBER}")
+                Img.push()
+                Img.push("latest")
+            }
+        }
+    }
+}
