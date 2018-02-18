@@ -27,9 +27,11 @@ RUN /synapse/bin/python -m synapse.app.homeserver \
 
 RUN apt-get remove --purge -y build-essential
 
+ENV CONFIG="homeserver.yaml"
+
 WORKDIR /synapse
 
 EXPOSE 8008
 EXPOSE 8448
 
-CMD /synapse/bin/python2.7  -m synapse.app.homeserver -c homeserver.yaml
+CMD /synapse/bin/python2.7  -m synapse.app.homeserver -c ${CONFIG}
