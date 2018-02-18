@@ -202,7 +202,7 @@ verbose: 0
 log_file: "/dev/stdout"
 
 # A yaml python logging config file
-log_config: "/synapse/dashome.co.log.config"
+log_config: "/synapse/stdout.log.config"
 
 
 ## Ratelimiting ##
