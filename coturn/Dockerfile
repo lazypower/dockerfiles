@@ -1,4 +1,4 @@
-FROM alpine:latest
+FROM alpine:3.6
 
 LABEL MAINTAINER "Charles Butler <chuck@linuxlab.sh>"
 LABEL GUIDE "https://github.com/matrix-org/synapse/blob/master/docs/turn-howto.rst"
@@ -8,6 +8,9 @@ ENV TURN_SHARED_SECRET=xxx
 ENV TURN_TLS_KEY=""
 ENV TURN_TLS_CERT=""
 ENV TURN_TLS_CIPHER="DEFAULT"
+
+EXPOSE 3478
+EXPOSE 5349
 
 RUN apk add --no-cache git build-base openssl-dev libevent libevent-dev linux-headers \
     && git clone https://github.com/coturn/coturn.git /coturn
