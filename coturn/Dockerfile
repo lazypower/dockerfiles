@@ -5,8 +5,8 @@ LABEL GUIDE "https://github.com/matrix-org/synapse/blob/master/docs/turn-howto.r
 
 ENV TURN_REALM=turn.example.com
 ENV TURN_SHARED_SECRET=xxx
-ENV TURN_TLS_KEY
-ENV TURN_TLS_CERT
+ENV TURN_TLS_KEY=""
+ENV TURN_TLS_CERT=""
 ENV TURN_TLS_CIPHER="DEFAULT"
 
 RUN apk add --no-cache git build-base openssl-dev libevent libevent-dev linux-headers \
