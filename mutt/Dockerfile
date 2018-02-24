@@ -41,7 +41,7 @@ RUN git clone --depth 1 https://gitlab.com/lazypower/dot-vim $HOME/.vim \
 ENV LANG C.UTF-8
 
 COPY	entrypoint.sh	/entrypoint.sh
-COPY	.mutt			$HOME/.mutt
+COPY	mutt			$HOME/.mutt
 
 ENTRYPOINT ["/entrypoint.sh"]
 
