@@ -1,0 +1,14 @@
+node {
+    checkout scm
+ 
+    docker.withRegistry('https://registry.linuxlab.sh', 'jenkins-linuxlab') {
+
+        stage('Create Docker Image') {
+            dir('matrix-appservice-tg') {
+                def Img = docker.build("matrix-appservice-tg:${env.BUILD_NUMBER}")
+                Img.push()
+                Img.push("latest")
+            }
+        }
+    }
+}

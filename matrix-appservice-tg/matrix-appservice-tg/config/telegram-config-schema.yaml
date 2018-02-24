@@ -1,0 +1,17 @@
+type: object
+requires: ["matrix_homeserver", "matrix_user_domain", "username_template", "auth_key_password"]
+properties:
+  matrix_homeserver:
+    type: string
+  matrix_user_domain:
+    type: string
+  username_template:
+    type: string
+  matrix_admin_room:
+    type: string
+  admin_console_needs_pling:
+    type: boolean
+  auth_key_password:
+    type: string
+  enable_metrics:
+    type: boolean
