@@ -1,0 +1,14 @@
+node {
+    checkout scm
+ 
+    docker.withRegistry('https://registry.linuxlab.sh', 'jenkins-linuxlab') {
+
+        stage('Create Docker Image') {
+            dir('matrix-appservice-mautrix-telegram') {
+                def Img = docker.build("matrix-appservice-mautrix-telegram:${env.BUILD_NUMBER}")
+                Img.push()
+                Img.push("latest")
+            }
+        }
+    }
+}
