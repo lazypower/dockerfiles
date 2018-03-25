@@ -1,0 +1,14 @@
+node {
+    checkout scm
+ 
+    docker.withRegistry('https://registry.linuxlab.sh', 'jenkins-linuxlab') {
+
+        stage('Create Docker Image') {
+            dir('7daystodie') {
+                def Img = docker.build("7daystodie:${env.BUILD_NUMBER}")
+                Img.push()
+                Img.push("latest")
+            }
+        }
+    }
+}
