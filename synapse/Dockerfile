@@ -16,7 +16,7 @@ RUN apt-get update                          && \
 RUN virtualenv -p python2.7 /synapse  &&\
     /synapse/bin/pip install --upgrade pip &&\
     /synapse/bin/pip install --upgrade setuptools &&\
-    /synapse/bin/pip install https://github.com/matrix-org/synapse/archive/v0.26.0.tar.gz &&\
+    /synapse/bin/pip install https://github.com/matrix-org/synapse/archive/v0.28.1.tar.gz &&\
     /synapse/bin/pip install psycopg2 &&\
     /synapse/bin/pip install lxml
 
